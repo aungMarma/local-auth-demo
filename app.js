@@ -11,20 +11,21 @@ mongoose.connect("mongodb://localhost/auth_demo");
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
-// this secret will be used to encode and decode the data in session
-// not storing data without encoding
+
+// session (express-session) secret
 app.use(require("express-session")({
 	secret: "Be curious, excited and determinde, forget your progress, just keep working",
 	resave: false,
 	saveUninitialized: false,
 }));
-
-// telling express to initialize and use express
 app.use(passport.initialize());
-app.use(passport.session());  // same as app.use(passport.authenticate('session'));
+
+//   persistent login sessions
+ // same as app.use(passport.authenticate('session'));
+app.use(passport.session()); 
 passport.use(new localStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());  // encode session (express-session)
-passport.deserializeUser(User.deserializeUser());  // decode session
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 
 // ROUTES
