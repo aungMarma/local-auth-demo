@@ -14,12 +14,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // configure express-session, it has to be done before passport.session()
 app.use(require("express-session")({
-	secret: "Be curious, excited and determinde, forget your progress, just keep working",
+	secret: "Be always coding, fuck imposter syndrome",
 	resave: false,
 	saveUninitialized: false,
 }));
 
-// initialize passport
+// initialize passport and use in express app
 app.use(passport.initialize());
 
 // persistent login sessions

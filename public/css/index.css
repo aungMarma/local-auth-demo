@@ -1,0 +1,28 @@
+body {
+	background-color: #123456;
+}
+.auth {
+	width: 30%;
+	margin: 0 auto;
+	margin-top: 200px;
+	text-align: center;
+	background-color: gray;
+}
+.secret {
+	width: 60%;
+	margin: 0 auto;
+	margin-top: 150px;
+	text-align: center;
+	background-color: gray;
+}
+.auth-field {
+	width: 30%;
+	color: red;
+	height: 30px;
+}
+
+a {
+	text-decoration: none;
+}
+
+

@@ -1,8 +1,15 @@
 <%- include partials/header %>
-	<h1>Sign Up Here</h1>
-	<form action="/register" method="POST">
-		<input type="text" placeholder="user name" autocomplete="username" name="username" required>
-		<input type="password" placeholder="password" autocomplete="password" name="password" required>
-		<input type="submit">
-	</form>
+	<div class="auth">
+		<h1>Sign Up Here</h1>
+		<form action="/register" method="POST">
+			<input 
+				class="auth-field" type="text" 
+				placeholder="user name" autocomplete="username" 
+				name="username" required/>
+			<input class="auth-field" type="password" 
+				placeholder="password" autocomplete="password" 
+				name="password" required/>
+			<input class="auth-field" type="submit">
+		</form>
+	</div>
 <%- include partials/footer %>
