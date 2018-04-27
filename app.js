@@ -12,18 +12,25 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 
-// session (express-session) secret
+// configure express-session, it has to be done before passport.session()
 app.use(require("express-session")({
 	secret: "Be curious, excited and determinde, forget your progress, just keep working",
 	resave: false,
 	saveUninitialized: false,
 }));
+
+// initialize passport
 app.use(passport.initialize());
 
-//   persistent login sessions
- // same as app.use(passport.authenticate('session'));
+// persistent login sessions
+// same as app.use(passport.authenticate('session'));
 app.use(passport.session()); 
+
+// telling passport to use local strategy
+// User.authenticate is Verifying Callback : http://www.passportjs.org/docs/configure/
 passport.use(new localStrategy(User.authenticate()));
+
+// support login sessions
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
