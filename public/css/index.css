@@ -25,4 +25,8 @@ a {
 	text-decoration: none;
 }
 
+.error-message {
+	color: red;
+}
+
 

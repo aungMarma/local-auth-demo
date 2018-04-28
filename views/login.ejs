@@ -1,13 +1,24 @@
 <%- include partials/header %>
 	<div class="auth">
 		<h1>Login here</h1>
+		<% if(message){ %>
+			<h3 class="error-message"> <%= message %> </h3>
+		<% } %>
 		<form action="/login" method="POST">
-			<input class="auth-field" type="text" 
-				placeholder="user name" name="username" 
-				autocomplete="on" required/>
-			<input class="auth-field" type="password" 
-				placeholder="password" name="password" 
-				autocomplete="off" required/>
+			<input 
+				class="auth-field" 
+				type="text" 
+				placeholder="user name" 
+				name="username" 
+				autocomplete="username" 
+			required/>
+			<input 
+				class="auth-field" 
+				type="password" 
+				placeholder="password" 
+				name="password"  
+				autocomplete="current-password" 
+			required/>
 			<input class="auth-field" type="submit">
 		</form>
 	</div>
